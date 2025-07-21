@@ -20,7 +20,16 @@
      background: linear-gradient(90deg,rgb(241, 183, 96),rgb(254, 111, 111));
 }
 #name{
-     text-align: center;
+     gap:10px;
+     display:flex;
+     justify-content: center;
+}
+#name img{
+     width:50px;
+     height:50px;
+     border-radius: 50%;
+     display:inline-block;
+     margin:-10px 0px;
 }
 button{
      border-radius: 5px;
@@ -42,7 +51,9 @@ button:hover{
 </head>
 <body>
      <div class="card" id="profileCard">
-      <h2 id="name"><img src="object\profilePicture.png" alt=""></h2>
+      <h2 id="name">
+           <img src="profilePicture.png" alt="Profile Picture of Diya Dutta">
+      </h2>
       <p id="bio"></p>
       <ul id="skills"></ul>
       <button onclick="toggleDetails()" id="btn">Toggle Info</button>
@@ -54,7 +65,10 @@ let profile={
      skills:["Python","DSA","MERN Developer","Gen AI","Agentic AI"],
      showFull:true,
      display:function(){
-          document.getElementById('name').innerText=this.name;
+          document.getElementById('name').innerHTML=`
+          <img src="profilePicture.png" alt="Profile Picture of Diya Dutta">
+          <span>${this.name}</span>
+          `;
           if(this.showFull){
                document.getElementById("bio").innerText=this.bio;
                let skillList=this.skills.map(skills=>`<li>${skills}</li>`).join("");
