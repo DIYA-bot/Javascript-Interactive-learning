@@ -71,6 +71,7 @@ let profile={
           <img src="profilePicture.png" alt="Profile Picture of Diya Dutta">
           <span>${this.name}</span>
           `;
+          // Show full info or hide it
           if(this.showFull){
                document.getElementById("bio").innerText=this.bio;
                let skillList=this.skills.map(skills=>`<li>${skills}</li>`).join("");
