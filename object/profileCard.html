@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Object Implementation</title>
+     <style>
+          body{
+               display:flex;
+               align-items: center;
+               justify-content: center;
+               height:50vh;
+               background: linear-gradient( 80deg ,rgb(247, 197, 206),rgb(250, 125, 146));
+          }
+.card{
+     border: none;
+     border-radius: 12px;
+     padding:15px;
+     box-shadow: 0 0 15px  rgb(239, 239, 239);
+     background: linear-gradient(90deg,rgb(241, 183, 96),rgb(254, 111, 111));
+}
+#name{
+     text-align: center;
+}
+button{
+     border-radius: 5px;
+     outline:none;
+     border:none;
+     align-items: center;
+     padding:5px;
+     margin:2px 100px;
+     background: linear-gradient(90deg,rgb(234, 103, 103),rgb(246, 126, 126));
+     color:white;
+     transition: all 3s ease-in-out;
+}
+button:hover{
+    transform:scaleX(1.5);
+     border:1px inset rgb(246, 133, 133);
+     background: linear-gradient(90deg,rgb(245, 153, 170),rgb(250, 125, 146));
+}
+     </style>
+</head>
+<body>
+     <div class="card" id="profileCard">
+      <h2 id="name"><img src="object\profilePicture.png" alt=""></h2>
+      <p id="bio"></p>
+      <ul id="skills"></ul>
+      <button onclick="toggleDetails()" id="btn">Toggle Info</button>
+     </div>
+    <script>
+let profile={
+     name:"Diya Dutta",
+     bio:"Web Developer | AI & ML | Cybersecurity    ",
+     skills:["Python","DSA","MERN Developer","Gen AI","Agentic AI"],
+     showFull:true,
+     display:function(){
+          document.getElementById('name').innerText=this.name;
+          if(this.showFull){
+               document.getElementById("bio").innerText=this.bio;
+               let skillList=this.skills.map(skills=>`<li>${skills}</li>`).join("");
+               document.getElementById("skills").innerHTML=skillList;
+          }else{
+               document.getElementById("bio").innerText="";
+               document.getElementById("skills").innerHTML="";
+          }
+     },
+    toggle:function(){
+     this.showFull=! this.showFull;
+     this.display();
+    }
+};
+
+profile.display();
+function toggleDetails(){
+     profile.toggle();
+     
+     
+}
+
+    </script> 
+</body>
+</html>
