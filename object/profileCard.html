@@ -74,6 +74,7 @@ let profile={
           // Show full info or hide it
           if(this.showFull){
                document.getElementById("bio").innerText=this.bio;
+               // Create HTML list items from skills
                let skillList=this.skills.map(skills=>`<li>${skills}</li>`).join("");
                document.getElementById("skills").innerHTML=skillList;
           }else{
